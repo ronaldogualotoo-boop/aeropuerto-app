@@ -1,0 +1,6 @@
+{% extends "aeropuerto/base.html" %}
+{% block title %}Aerolíneas | AeroGestión{% endblock %}
+{% block content %}
+  <div class="page-heading"><div><p class="eyebrow">OPERADORES</p><h1>Aerolíneas</h1></div>{% if perms.aeropuerto.add_aerolinea %}<a class="button" href="{% url 'aerolineas:aerolinea_create' %}">Agregar aerolínea</a>{% endif %}</div>
+  <div class="card-grid">{% for aerolinea in object_list %}<article class="card"><span class="tag">{{ aerolinea.codigo }}</span><h2><a href="{{ aerolinea.get_absolute_url }}">{{ aerolinea.nombre }}</a></h2><p>{{ aerolinea.pais_origen }}</p><p>{{ aerolinea.vuelos.count }} vuelos</p></article>{% empty %}<p>No hay aerolíneas registradas.</p>{% endfor %}</div>
+{% endblock %}

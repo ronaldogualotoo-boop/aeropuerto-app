@@ -1,0 +1,16 @@
+{% extends "aeropuerto/base.html" %}
+{% block title %}Inicio | AeroGestión{% endblock %}
+{% block content %}
+  <section class="hero">
+    <p class="eyebrow">OPERACIONES AEROPORTUARIAS</p>
+    <h1>Información clara para cada vuelo</h1>
+    <p>Administra aeropuertos, aerolíneas, aeronaves y vuelos desde un solo lugar.</p>
+    <a class="button" href="{% url 'vuelos:vuelo_list' %}">Consultar vuelos</a>
+  </section>
+  <section class="stats">
+    <article><strong>{{ aeropuertos_count }}</strong><span>Aeropuertos</span></article>
+    <article><strong>{{ aerolineas_count }}</strong><span>Aerolíneas</span></article>
+    <article><strong>{{ aeronaves_count }}</strong><span>Aeronaves</span></article>
+    <article><strong>{{ vuelos_count }}</strong><span>Vuelos</span></article>
+  </section>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "aeropuerto/base.html" %}
+{% block title %}Aeropuertos | AeroGestión{% endblock %}
+{% block content %}
+  <div class="page-heading">
+    <div><p class="eyebrow">RED AEROPORTUARIA</p><h1>Aeropuertos</h1></div>
+    {% if perms.aeropuerto.add_aeropuerto %}<a class="button" href="{% url 'aeropuertos:aeropuerto_create' %}">Agregar aeropuerto</a>{% endif %}
+  </div>
+  <div class="card-grid">
+    {% for aeropuerto in object_list %}
+      <article class="card">
+        <span class="tag">{{ aeropuerto.codigo_iata }}</span>
+        <h2><a href="{{ aeropuerto.get_absolute_url }}">{{ aeropuerto.nombre }}</a></h2>
+        <p>{{ aeropuerto.ciudad }}, {{ aeropuerto.pais }}</p>
+        <p>{{ aeropuerto.vuelos_salida.count }} vuelos de salida</p>
+      </article>
+    {% empty %}<p>No hay aeropuertos registrados.</p>{% endfor %}
+  </div>
+{% endblock %}

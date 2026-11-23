@@ -1,0 +1,2 @@
+{% extends "aeropuerto/base.html" %}
+{% block content %}<section class="panel narrow"><h1>Eliminar vuelo</h1><p>¿Confirmas que deseas eliminar <strong>{{ object }}</strong>?</p><form method="post">{% csrf_token %}<button class="button danger" type="submit">Sí, eliminar</button> <a href="{{ object.get_absolute_url }}">Cancelar</a></form></section>{% endblock %}

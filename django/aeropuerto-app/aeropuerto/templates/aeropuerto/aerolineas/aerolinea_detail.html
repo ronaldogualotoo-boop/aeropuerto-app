@@ -1,0 +1,7 @@
+{% extends "aeropuerto/base.html" %}
+{% block title %}{{ object.nombre }} | AeroGestión{% endblock %}
+{% block content %}
+  <section class="panel"><span class="tag">{{ object.codigo }}</span><h1>{{ object.nombre }}</h1><p>País de origen: {{ object.pais_origen }}</p><p>Creado por {{ object.creado_por.username }}</p>{% if perms.aeropuerto.change_aerolinea %}<a class="button secondary" href="{% url 'aerolineas:aerolinea_update' object.pk %}">Editar</a>{% endif %}{% if perms.aeropuerto.delete_aerolinea %}<a class="button danger" href="{% url 'aerolineas:aerolinea_delete' object.pk %}">Eliminar</a>{% endif %}</section>
+  <section class="two-columns"><article class="panel"><h2>Aeropuertos atendidos</h2><ul>{% for aeropuerto in object.aeropuertos_atendidos.all %}<li><a href="{{ aeropuerto.get_absolute_url }}">{{ aeropuerto }}</a></li>{% empty %}<li>No hay aeropuertos asociados.</li>{% endfor %}</ul></article><article class="panel"><h2>Aeronaves</h2><ul>{% for aeronave in object.aeronaves.all %}<li><a href="{{ aeronave.get_absolute_url }}">{{ aeronave }}</a></li>{% empty %}<li>No hay aeronaves.</li>{% endfor %}</ul></article></section>
+  <section class="panel"><h2>Vuelos</h2><ul>{% for vuelo in object.vuelos.all %}<li><a href="{{ vuelo.get_absolute_url }}">{{ vuelo }}</a></li>{% empty %}<li>No hay vuelos.</li>{% endfor %}</ul></section>
+{% endblock %}

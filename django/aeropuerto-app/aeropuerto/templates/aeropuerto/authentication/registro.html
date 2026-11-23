@@ -1,0 +1,13 @@
+{% extends "aeropuerto/base.html" %}
+{% block title %}Crear cuenta | AeroGestión{% endblock %}
+{% block content %}
+  <section class="panel narrow">
+    <h1>Crear cuenta</h1>
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button class="button" type="submit">Registrarse</button>
+    </form>
+    <p>¿Ya tienes una cuenta? <a href="{% url 'login' %}">Inicia sesión</a>.</p>
+  </section>
+{% endblock %}

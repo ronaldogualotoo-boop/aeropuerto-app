@@ -1,0 +1,9 @@
+{% extends "aeropuerto/base.html" %}
+{% block title %}{% if object %}Editar{% else %}Nuevo{% endif %} aeropuerto | AeroGestión{% endblock %}
+{% block content %}
+  <section class="panel narrow">
+    <h1>{% if object %}Editar aeropuerto{% else %}Registrar aeropuerto{% endif %}</h1>
+    <form method="post">{% csrf_token %}{{ form.as_p }}<button class="button" type="submit">Guardar</button></form>
+    <a href="{% url 'aeropuertos:aeropuerto_list' %}">Volver a aeropuertos</a>
+  </section>
+{% endblock %}

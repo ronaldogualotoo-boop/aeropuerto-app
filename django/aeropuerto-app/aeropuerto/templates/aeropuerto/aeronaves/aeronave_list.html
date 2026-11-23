@@ -1,0 +1,3 @@
+{% extends "aeropuerto/base.html" %}
+{% block title %}Aeronaves | AeroGestión{% endblock %}
+{% block content %}<div class="page-heading"><div><p class="eyebrow">FLOTA</p><h1>Aeronaves</h1></div>{% if perms.aeropuerto.add_aeronave %}<a class="button" href="{% url 'aeronaves:aeronave_create' %}">Agregar aeronave</a>{% endif %}</div><div class="card-grid">{% for aeronave in object_list %}<article class="card"><span class="tag">{{ aeronave.matricula }}</span><h2><a href="{{ aeronave.get_absolute_url }}">{{ aeronave.fabricante }} {{ aeronave.modelo }}</a></h2><p>{{ aeronave.aerolinea }} · {{ aeronave.capacidad }} asientos</p></article>{% empty %}<p>No hay aeronaves registradas.</p>{% endfor %}</div>{% endblock %}

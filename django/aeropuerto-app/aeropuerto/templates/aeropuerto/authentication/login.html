@@ -1,0 +1,14 @@
+{% extends "aeropuerto/base.html" %}
+{% block title %}Iniciar sesión | AeroGestión{% endblock %}
+{% block content %}
+  <section class="panel narrow">
+    <h1>Iniciar sesión</h1>
+    <form method="post">
+      {% csrf_token %}
+      <input type="hidden" name="next" value="{{ request.GET.next }}">
+      {{ form.as_p }}
+      <button class="button" type="submit">Entrar</button>
+    </form>
+    <p>¿No tienes cuenta? <a href="{% url 'registro' %}">Regístrate</a>.</p>
+  </section>
+{% endblock %}
