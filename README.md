@@ -64,3 +64,7 @@ El objetivo de este repositorio es mantener un **control organizado de los proye
 ## 📌 Nota
 
 Este repositorio tiene fines **académicos** y será utilizado para almacenar y organizar las actividades, prácticas y proyectos desarrollados durante la materia **Programación II**.
+
+## Proyecto Django: AeroGestión
+
+La aplicación de gestión aeroportuaria de esta tarea está en [`django/aeropuerto-app/`](./django/aeropuerto-app/). Su README documenta el modelo de datos, la instalación, los permisos y las cuentas reproducibles para pruebas.
